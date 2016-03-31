@@ -29,23 +29,23 @@ local function instagramUser(msg, query)
 	end
 	local text = ''
 	if user.data.bio ~= '' then
-		text = text.."Username: "..user.data.username:upper().."\n\n"
+		text = text.."🆔 آیدی: "..user.data.username:upper().."\n\n"
 	else
-		text = text.."Username: "..user.data.username:upper().."\n"
+		text = text.."🆔 آیدی: "..user.data.username:upper().."\n"
 	end
 	if user.data.bio ~= '' then
 		text = text..user.data.bio.."\n\n"
 	end
 	if user.data.full_name ~= '' then
-		text = text.."Name: "..user.data.full_name.."\n"
+		text = text.."📝 نام: "..user.data.full_name.."\n"
 	end
-	text = text.."Media Count: "..user.data.counts.media.."\n"
-	text = text.."Following: "..user.data.counts.follows.."\n"
-	text = text.."Followers: "..user.data.counts.followed_by.."\n"
+	text = text.."🌄🛤  پست ها: "..user.data.counts.media.."\n"
+	text = text.."😜 فالو کرده: "..user.data.counts.follows.."\n"
+	text = text.."😍 فالوراش: "..user.data.counts.followed_by.."\n"
 	if user.data.website ~= '' then
-		text = text.."Website: "..user.data.website.."\n"
+		text = text.."🌐 وب سایت : "..user.data.website.."\n"
 	end
-	text = text.."\nDEV:Mr.WoesDo"
+	text = text.."\n@TelePatch "
 	local file_path = download_to_file(user.data.profile_picture,"insta.png")     -- disable this line if you want to send profile photo as sticker
 	--local file_path = download_to_file(user.data.profile_picture,"insta.webp")    -- enable this line if you want to send profile photo as sticker
 	local cb_extra = {file_path=file_path}
@@ -70,16 +70,16 @@ local function instagramMedia(msg, query)
 	local data = ''
 	if jdat.data.caption then
 	      data = jdat.data.caption
-	      text = text.."Username: "..data.from.username:upper().."\n\n"
+	      text = text.."🆔 آیدی: "..data.from.username:upper().."\n\n"
 		  text = text..data.from.full_name.."\n\n"
 		  text = text..data.text.."\n\n"
-		  text = text.."Like Count: "..jdat.data.likes.count.."\n"
+		  text = text.."💛 تعداد لایک: "..jdat.data.likes.count.."\n"
     else
-	      text = text.."Username: "..jdat.data.user.username:upper().."\n"
-		  text = text.."Name: "..jdat.data.user.full_name.."\n"
-		  text = text.."Like Count: "..jdat.data.likes.count.."\n"
+	      text = text.."🆔 آیدی: "..jdat.data.user.username:upper().."\n"
+		  text = text.."📝 نام: "..jdat.data.user.full_name.."\n"
+		  text = text.."💛 تعداد لایک: "..jdat.data.likes.count.."\n"
 	end
-	text = text.."\nDEV:Mr.WoesDo"
+	text = text.."\n@TelePatch "
 	send_msg(receiver,text,ok_cb,false)
 end
 local function run(msg, matches)
