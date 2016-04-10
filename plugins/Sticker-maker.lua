@@ -25,7 +25,7 @@ return {
     "!tex [equation]: Convert LaTeX equation to image"
   },
   patterns = {
-    "^(!sticker) (.+) (.+)$"
+    "^(استیکر) (.+) (.+)$"
   },
   run = run
 }
