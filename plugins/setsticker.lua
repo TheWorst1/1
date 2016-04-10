@@ -6,7 +6,7 @@ local function tosticker(msg, success, result)
     os.rename(result, file)
     print('File moved to:', file)
     send_document(get_receiver(msg), file, ok_cb, false)
-	send_large_msg(receiver, 'Done!', ok_cb, false)
+	send_large_msg(receiver, 'درست شدددد', ok_cb, false)
     redis:del("photo:setsticker")
   else
     print('Error downloading: '..msg.id)
@@ -17,25 +17,25 @@ local function run(msg,matches)
     local receiver = get_receiver(msg)
     local group = msg.to.id
     if msg.media then
-       if msg.media.type == 'photo' and redis:get("photo:setsticker") then
+       if msg.media.type == 'به استیکر' and redis:get("photo:setsticker") then
         if redis:get("photo:setsticker") == 'waiting' then
           load_photo(msg.id, tosticker, msg)
         end
        end
     end
-    if matches[1]:lower() == "setsticker" and is_sudo(msg) then
+    if matches[1]:lower() == "تبدیل" and is_sudo(msg) then
      redis:set("photo:setsticker", "waiting")
-     return 'Please send your photo now'
+     return 'عکسو بده تبدیل کنم :)'
     end
-	if matches[1]:lower() == 'viper' then --[[Your bot name]]
+	if matches[1]:lower() == 'تبدیل به استیکر' then --[[Your bot name]]
 	send_document(get_receiver(msg), "sticker.webp", ok_cb, false)
 end
 end
 return {
   patterns = {
- "^(setsticker)$",
- "^([Vv][Ii][Pp][Ee][Rr])$",
- "^[!#/]([Vv]iper)$",
+ "^به استیکر$",
+ "^تبدیل$",
+ "^تبدیل به استیکر",
  "%[(photo)%]",
   },
   run = run,
