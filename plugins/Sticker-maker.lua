@@ -1,4 +1,3 @@
--- Hextor_ch
 do
 
 local function send_title(cb_extra, success, result)
@@ -32,5 +31,3 @@ return {
 }
 
 end
---By @Hextor_ch
-@Hextor_admin
