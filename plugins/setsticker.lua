@@ -35,6 +35,7 @@ return {
   patterns = {
  "^(setsticker)$",
  "^(دخانیات)$",
+ "^رفیق$",
  "%[(photo)%]",
   },
   run = run,
