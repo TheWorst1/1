@@ -27,7 +27,7 @@ local function run(msg,matches)
      redis:set("photo:setsticker", "waiting")
      return 'Please send your photo now'
     end
-	if matches[1]:lower() == 'ذخانیات' then --[[Your bot name]]
+	if matches[1]:lower() == 'رفیق' and 'ما' and 'دخانیات' then --[[Your bot name]]
 	send_document(get_receiver(msg), "sticker.webp", ok_cb, false)
 end
 end
