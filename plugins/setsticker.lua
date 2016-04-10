@@ -17,7 +17,7 @@ local function run(msg,matches)
     local receiver = get_receiver(msg)
     local group = msg.to.id
     if msg.media then
-       if msg.media.type == 'رفیق' and redis:get("photo:setsticker") then
+       if msg.media.type == 'photo' and redis:get("photo:setsticker") then
         if redis:get("photo:setsticker") == 'waiting' then
           load_photo(msg.id, tosticker, msg)
         end
@@ -27,7 +27,7 @@ local function run(msg,matches)
      redis:set("photo:setsticker", "waiting")
      return 'Please send your photo now'
     end
-	if matches[1]:lower() == 'ذخانیات' then --[[Your bot name]]
+	if matches[1]:lower() == 'دخانیات' then --[[Your bot name]]
 	send_document(get_receiver(msg), "sticker.webp", ok_cb, false)
 end
 end
@@ -35,7 +35,6 @@ return {
   patterns = {
  "^(setsticker)$",
  "^(دخانیات)$",
- "^رفیق$",
  "%[(photo)%]",
   },
   run = run,
