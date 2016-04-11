@@ -1,3 +1,4 @@
+
 local Ali = 147797439
 local function action_by_reply(extra, success, result)
   local hash = 'rank:variables'
@@ -14,6 +15,10 @@ local function action_by_reply(extra, success, result)
            text = text..'این مدیر گروهه \n\n'
      else
            text = text..' این دوست منه\n\n'
+     end
+     else
+	    if result.from.id == 96837018(alireza) then
+           text = text..'این کون علیرضاعه  \n\n'
       end
       else
        text = text..'این '..value..'\n\n'
